@@ -15,6 +15,9 @@ return new class extends Migration
         Schema::create("tbl_user", function(Blueprint $table){
             $table->id();
             $table->string('email')->unique()->nullable(false);
+            $table->string('username')->unique()->nullable(false);
+            $table->string('password')->nullable(false);
+            $table->timestamps();
         });
     }
 
@@ -24,5 +27,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists("tbl_user");
     }
 };
