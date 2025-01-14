@@ -14,4 +14,8 @@ class UserModel extends Model
         'username',
         'password'
     ];
+
+    public function userAuth(){
+        return $this->hasOne(AuthModel::class,"user_id");
+    }
 }
